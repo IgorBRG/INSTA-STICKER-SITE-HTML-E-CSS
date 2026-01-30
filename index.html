@@ -98,8 +98,10 @@
                     <div class="swiper-slide"><img src="img/4.png" alt="Depoimento 4"></div>
                     <div class="swiper-slide"><img src="img/5.png" alt="Depoimento 5"></div>
                 </div>
+                
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
+                
                 <div class="swiper-pagination"></div>
             </div>
 
@@ -243,47 +245,37 @@
         <div class="modal-content" onclick="event.stopPropagation()">
             <span class="close-modal" onclick="closeModal('modal-termos')">&times;</span>
             <h3>Termos e Condições</h3>
-            <div class="modal-body">
-                <p>Aqui você descreve seus termos de uso...</p>
-            </div>
+            <div class="modal-body"><p>Insira seus termos aqui...</p></div>
         </div>
     </div>
     <div id="modal-privacidade" class="modal-overlay" onclick="closeModal('modal-privacidade')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <span class="close-modal" onclick="closeModal('modal-privacidade')">&times;</span>
             <h3>Políticas de Privacidade</h3>
-            <div class="modal-body">
-                <p>Insira suas políticas de privacidade aqui...</p>
-            </div>
+            <div class="modal-body"><p>Insira suas políticas aqui...</p></div>
         </div>
     </div>
     <div id="modal-cookies" class="modal-overlay" onclick="closeModal('modal-cookies')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <span class="close-modal" onclick="closeModal('modal-cookies')">&times;</span>
             <h3>Políticas de Cookies</h3>
-            <div class="modal-body">
-                <p>Insira sua política de cookies aqui...</p>
-            </div>
+            <div class="modal-body"><p>Insira sua política aqui...</p></div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Swiper
+            
+            // CARROSSEL (Configuração mantida, apenas o CSS dos botões mudará)
             var swiper = new Swiper(".mySwiper", {
-                effect: "coverflow",
                 grabCursor: true,
                 centeredSlides: true,
-                slidesPerView: "auto",
-                coverflowEffect: {
-                    rotate: 0,
-                    stretch: 0,
-                    depth: 100,
-                    modifier: 2,
-                    slideShadows: true,
+                loop: true, 
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
                 },
-                loop: true,
                 pagination: {
                     el: ".swiper-pagination",
                     clickable: true,
@@ -293,9 +285,9 @@
                     prevEl: ".swiper-button-prev",
                 },
                  breakpoints: {
-                    320: { slidesPerView: 1.2, spaceBetween: 20 },
-                    640: { slidesPerView: 2.5, spaceBetween: 30 },
-                    1024: { slidesPerView: 3.5, spaceBetween: 40 }
+                    320: { slidesPerView: 1, spaceBetween: 20 },
+                    640: { slidesPerView: 2, spaceBetween: 30 },
+                    1024: { slidesPerView: 3, spaceBetween: 40 }
                 }
             });
 
@@ -324,7 +316,7 @@
                 });
             });
 
-            // Reveal Animation
+            // Animação Reveal
             const revealOnScroll = () => {
                 const windowHeight = window.innerHeight;
                 const elementVisible = 100;
