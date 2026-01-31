@@ -101,10 +101,11 @@
                         <li class="carousel-slide"><img src="img/carrousel1.jpeg" alt="Feedback 1 Clone"></li>
                         <li class="carousel-slide"><img src="img/carrousel2.jpeg" alt="Feedback 2 Clone"></li>
                         <li class="carousel-slide"><img src="img/carrousel3.jpeg" alt="Feedback 3 Clone"></li>
+                        <li class="carousel-slide"><img src="img/carrousel4.jpeg" alt="Feedback 4 Clone"></li>
+                        <li class="carousel-slide"><img src="img/carrousel5.jpeg" alt="Feedback 5 Clone"></li>
                     </ul>
                 </div>
-
-                </div>
+            </div>
 
         </div>
     </section>
@@ -268,42 +269,71 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
-            // --- CARROSSEL JS PURO (SÓ AUTOMÁTICO) ---
             const track = document.getElementById('track');
-            const slides = Array.from(track.children);
             
-            let slideWidth = 280; // Largura do slide + margem (ajuste conforme CSS)
-            let currentIndex = 0;
-            const totalSlides = slides.length; 
-
-            // Função para mover
-            const moveToSlide = (index) => {
-                // Loop: se chegar no fim, volta pro começo
-                if (index > totalSlides - 3) {
-                    index = 0; // Volta para o primeiro slide
-                    // Para fazer o loop visualmente perfeito sem "voltar correndo", 
-                    // precisaria de lógica complexa de transição, mas aqui vamos resetar simples
-                    // para manter o código leve como você pediu.
-                }
-
-                track.style.transform = 'translateX(-' + (slideWidth * index) + 'px)';
-                currentIndex = index;
+            // Largura do slide (260px) + margem direita (20px) = 280px total
+            // No mobile o CSS muda para margem 15px, vamos considerar 280 como base segura.
+            let slideWidth = 280; 
+            
+            // Se for mobile, recalcula (largura 260 + 15 margem = 275)
+            if (window.innerWidth <= 768) {
+                slideWidth = 275;
             }
 
-            // Autoplay (Passa sozinho)
-            let autoPlay = setInterval(() => {
-                moveToSlide(currentIndex + 1);
-            }, 3000); // 3 segundos
+            let index = 0;
+            const originalSlidesCount = 5; // Temos 5 originais
 
-            // Pausa o autoplay se passar o mouse (pra pessoa ler se quiser)
+            // Função que move o slide
+            const moveToNextSlide = () => {
+                // Se chegamos no final dos Clones (index 5)
+                if (index >= originalSlidesCount) {
+                    // 1. Removemos a transição para o usuário não ver a "volta"
+                    track.style.transition = 'none';
+                    // 2. Voltamos instantaneamente para o index 0 (que é igual visualmente ao 5)
+                    index = 0;
+                    track.style.transform = `translateX(0px)`;
+                    
+                    // 3. Forçamos o navegador a processar a mudança (Reflow)
+                    void track.offsetWidth; 
+
+                    // 4. Agora sim, andamos para o slide 1 com animação
+                    track.style.transition = 'transform 0.5s ease-in-out';
+                    index++;
+                    track.style.transform = `translateX(-${slideWidth * index}px)`;
+                } else {
+                    // Movimento normal
+                    track.style.transition = 'transform 0.5s ease-in-out';
+                    index++;
+                    track.style.transform = `translateX(-${slideWidth * index}px)`;
+                }
+            };
+
+            // Inicia o Autoplay
+            let autoPlay = setInterval(moveToNextSlide, 3000); 
+
+            // Pausa ao passar o mouse ou tocar
             const carouselContainer = document.querySelector('.custom-carousel');
             carouselContainer.addEventListener('mouseenter', () => clearInterval(autoPlay));
             carouselContainer.addEventListener('mouseleave', () => {
-                autoPlay = setInterval(() => moveToSlide(currentIndex + 1), 3000);
+                autoPlay = setInterval(moveToNextSlide, 3000);
+            });
+            
+            // Suporte básico a Touch (Arrastar)
+            let startX;
+            carouselContainer.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                clearInterval(autoPlay);
+            });
+            carouselContainer.addEventListener('touchend', (e) => {
+                let endX = e.changedTouches[0].clientX;
+                if (startX > endX + 50) { // Arrastou pra esquerda
+                    moveToNextSlide();
+                }
+                autoPlay = setInterval(moveToNextSlide, 3000);
             });
 
 
-            // --- OUTROS SCRIPTS ---
+            // --- OUTROS SCRIPTS DO SITE ---
 
             // FAQ
             document.querySelectorAll('.faq-question').forEach(button => {
