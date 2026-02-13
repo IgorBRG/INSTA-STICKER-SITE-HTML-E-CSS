@@ -144,11 +144,66 @@ img { max-width: 100%; display: block; }
 .showcase-item:hover img { transform: translateY(-10px); }
 .cta-center { text-align: center; }
 
-/* --- Detalhes do App --- */
+/* --- APP DETAIL (LISTA DE NICHOS ATUALIZADA) --- */
 .app-detail { padding: 80px 0; background-color: #f0ede0; }
-.app-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 50px; }
-.app-text h2 { font-family: var(--font-title); font-size: 3rem; text-transform: uppercase; color: var(--bg-pink); margin-bottom: 20px; }
-.feature-list li { font-size: 1.2rem; margin-bottom: 10px; list-style-type: square; margin-left: 20px; }
+.app-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 50px; } /* Mudei align-items para start */
+
+.app-text h2 { 
+    font-family: var(--font-title); 
+    font-size: 3rem; 
+    text-transform: uppercase; 
+    color: var(--bg-pink); 
+    margin-bottom: 20px; 
+}
+
+/* Estilo da Lista Nova */
+.feature-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Cria 2 colunas iguais */
+    gap: 10px 20px; /* Espaço entre linhas e colunas */
+    padding: 0;
+    list-style: none; /* Remove a bolinha padrão feia */
+    margin-bottom: 30px;
+}
+
+.feature-list li {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #444;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Cria a bolinha personalizada com a cor da marca */
+.feature-list li::before {
+    content: "•"; /* Bolinha */
+    color: var(--bg-pink); /* Cor ROSA da identidade */
+    font-size: 1.5rem;
+    margin-right: 10px;
+    line-height: 1;
+}
+
+/* Pequeno efeito ao passar o mouse para dar vida */
+.feature-list li:hover {
+    transform: translateX(5px);
+    color: var(--bg-purple);
+}
+
+/* Ajuste Mobile: Volta para 1 coluna se a tela for pequena */
+@media (max-width: 768px) {
+    .app-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature-list {
+        grid-template-columns: 1fr; /* 1 coluna no celular para leitura fácil */
+        gap: 8px;
+    }
+    
+    .app-text { text-align: left; } /* Alinha texto a esquerda fica melhor pra listas */
+    .app-text h2 { text-align: center; } /* Mantém título centralizado se preferir */
+}
 
 /* --- Bônus --- */
 .bonus-section { padding: 80px 0; background-color: var(--bg-cream); }
