@@ -8,9 +8,8 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="style.css">
 
     <header class="hero">
         <div class="container hero-container">
@@ -68,13 +67,13 @@
             
             <div class="showcase-grid">
                 <div class="showcase-item reveal">
-                    <img src="img/showcase-novo-1.jpg" alt="Exemplo Stories 1">
+                    <img src="img/showcase-novo-1.jpeg" alt="Exemplo Stories 1" loading="lazy">
                 </div>
                 <div class="showcase-item reveal">
-                    <img src="img/showcase-novo-2.jpg" alt="Exemplo Stories 2">
+                    <img src="img/showcase-novo-2.jpeg" alt="Exemplo Stories 2" loading="lazy">
                 </div>
                 <div class="showcase-item reveal">
-                    <img src="img/showcase-novo-3.jpg" alt="Exemplo Stories 3">
+                    <img src="img/showcase-novo-3.jpeg" alt="Exemplo Stories 3" loading="lazy">
                 </div>
             </div>
 
@@ -92,15 +91,17 @@
             <div class="custom-carousel">
                 <div class="carousel-track-container">
                     <ul class="carousel-track" id="track">
-                        <li class="carousel-slide"><img src="img/carrousel1.jpeg" alt="Feedback 1"></li>
-                        <li class="carousel-slide"><img src="img/carrousel2.jpeg" alt="Feedback 2"></li>
-                        <li class="carousel-slide"><img src="img/carrousel3.jpeg" alt="Feedback 3"></li>
-                        <li class="carousel-slide"><img src="img/carrousel4.jpeg" alt="Feedback 4"></li>
-                        <li class="carousel-slide"><img src="img/carrousel5.jpeg" alt="Feedback 5"></li>
-                        
-                        <li class="carousel-slide"><img src="img/carrousel1.jpeg" alt="Feedback 1 Clone"></li>
-                        <li class="carousel-slide"><img src="img/carrousel2.jpeg" alt="Feedback 2 Clone"></li>
-                        <li class="carousel-slide"><img src="img/carrousel3.jpeg" alt="Feedback 3 Clone"></li>
+                        <li class="carousel-slide"><img src="img/carrousel1.jpeg" alt="Feedback 1" loading="lazy"></li>
+                        <li class="carousel-slide"><img src="img/carrousel2.jpeg" alt="Feedback 2" loading="lazy"></li>
+                        <li class="carousel-slide"><img src="img/carrousel3.jpeg" alt="Feedback 3" loading="lazy"></li>
+                        <li class="carousel-slide"><img src="img/carrousel4.jpeg" alt="Feedback 4" loading="lazy"></li>
+                        <li class="carousel-slide"><img src="img/carrousel5.jpeg" alt="Feedback 5" loading="lazy"></li>
+                        <!-- Duplicate slides for infinite marquee effect -->
+                        <li class="carousel-slide"><img src="img/carrousel1.jpeg" alt="Feedback 1" loading="lazy"></li>
+                        <li class="carousel-slide"><img src="img/carrousel2.jpeg" alt="Feedback 2" loading="lazy"></li>
+                        <li class="carousel-slide"><img src="img/carrousel3.jpeg" alt="Feedback 3" loading="lazy"></li>
+                        <li class="carousel-slide"><img src="img/carrousel4.jpeg" alt="Feedback 4" loading="lazy"></li>
+                        <li class="carousel-slide"><img src="img/carrousel5.jpeg" alt="Feedback 5" loading="lazy"></li>
                     </ul>
                 </div>
             </div>
@@ -214,7 +215,7 @@
     <section class="guarantee-section" id="oferta">
         <div class="container">
             <div class="guarantee-box reveal">
-                <img src="img/garantia-selo-223x300.webp" alt="Selo de Garantia 7 Dias" class="seal-img">
+                <img src="img/garantia-selo-223x300.webp" alt="Selo de Garantia 7 Dias" class="seal-img" loading="lazy">
                 
                 <h2>Oferta Relâmpago</h2>
                 <p>Garanta seu acesso a comunidade de figurinhas com um desconto insano. Se em 7 dias você não amar, devolvemos seu dinheiro.</p>
@@ -283,63 +284,33 @@
         <div class="modal-content" onclick="event.stopPropagation()">
             <span class="close-modal" onclick="closeModal('modal-termos')">&times;</span>
             <h3>Termos e Condições</h3>
-            <div class="modal-body"><p>Insira seus termos aqui...</p></div>
+            <div class="modal-body">
+                <p>Ao acessar o site Laboratório Criativo, o usuário concorda em cumprir estes termos de serviço, todas as leis e regulamentos aplicáveis. Os materiais contidos neste site são protegidos pelas leis de direitos autorais e marcas comerciais. Não é permitida a cópia, distribuição, modificação ou reprodução do conteúdo protegido para fins não autorizados pelo seu respectivo detentor.<br><br>Garantimos o acesso aos stickers após o pagamento ser confirmado. O uso indevido desse material (como pirataria ou revenda sem permissão não autorizada) pode incorrer no ajuizamento de processos cabíveis. Nos reservamos no direito de atualização destes termos sem notificação prévia.</p>
+            </div>
         </div>
     </div>
     <div id="modal-privacidade" class="modal-overlay" onclick="closeModal('modal-privacidade')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <span class="close-modal" onclick="closeModal('modal-privacidade')">&times;</span>
             <h3>Políticas de Privacidade</h3>
-            <div class="modal-body"><p>Insira suas políticas aqui...</p></div>
+            <div class="modal-body">
+                <p>A sua privacidade é importante para nós. Solicitamos suas informações pessoais básicas apenas quando necessário para viabilizar a entrega do acesso aos nossos materiais e melhorar o nosso serviço, fazendo-o apenas pelos métodos legais, com o seu absoluto consentimento e conhecimento.<br><br>Ressaltamos não compartilhar publicamente, nem vender a terceiros, os seus dados de identificação e métodos de pagamento. Os processamentos de pagamentos são responsabilidade das administradoras em gateway seguro e criptografado.</p>
+            </div>
         </div>
     </div>
     <div id="modal-cookies" class="modal-overlay" onclick="closeModal('modal-cookies')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <span class="close-modal" onclick="closeModal('modal-cookies')">&times;</span>
             <h3>Políticas de Cookies</h3>
-            <div class="modal-body"><p>Insira sua política aqui...</p></div>
+            <div class="modal-body">
+                <p>Utilizamos cookies para melhorar e personalizar as suas sessões e experiência em nossa plataforma. Os "cookies" são pequenos arquivos de texto armazenados no seu dispositivo encarregados de reter funções de sistema, métricas analíticas e preferências pontuais de quem nos acessa.<br><br>Você é plenamente livre para rejeitar o envio dos nossos cookies e limpar seu histórico diretamente através de ferramentas do seu próprio navegador. Note que a desativação de certas opções de cookies não afetará o seu acesso ao nosso material, mas pode não otimizar outras das nossas páginas.</p>
+            </div>
         </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
-            // --- MEU CARROSSEL AUTOMÁTICO (JS PURO) ---
-            const track = document.getElementById('track');
-            const slides = Array.from(track.children);
-            
-            // Largura fixa que defini no CSS + margem
-            let slideWidth = 280; 
-            
-            let currentIndex = 0;
-            const totalSlides = slides.length; 
-
-            // Função que faz o slide andar
-            const moveToSlide = (index) => {
-                // Se passar do total de slides, volta pro começo (loop simples)
-                if (index > totalSlides - 3) {
-                    index = 0; 
-                }
-                // Movimenta a trilha
-                track.style.transform = 'translateX(-' + (slideWidth * index) + 'px)';
-                currentIndex = index;
-            }
-
-            // Ativa o autoplay a cada 3 segundos
-            let autoPlay = setInterval(() => {
-                moveToSlide(currentIndex + 1);
-            }, 3000); 
-
-            // Se eu passar o mouse, o carrossel para
-            const carouselContainer = document.querySelector('.custom-carousel');
-            carouselContainer.addEventListener('mouseenter', () => clearInterval(autoPlay));
-            
-            // Quando tiro o mouse, ele volta a andar
-            carouselContainer.addEventListener('mouseleave', () => {
-                autoPlay = setInterval(() => moveToSlide(currentIndex + 1), 3000);
-            });
-
-
             // --- Lógica do FAQ (Acordeão) ---
             document.querySelectorAll('.faq-question').forEach(button => {
                 button.addEventListener('click', () => {
