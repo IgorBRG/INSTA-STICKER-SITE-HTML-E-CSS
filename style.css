@@ -122,16 +122,17 @@ img { max-width: 100%; display: block; }
 
 /* --- Seção de Dores --- */
 .pain-section {
-    background-image: url('img/background.png'); 
-    background-size: cover;
+    background-image: linear-gradient(rgba(253,251,247,0.85), rgba(253,251,247,0.85)), url('img/story_stickers_light_bg.png');
+    background-size: 400px;
+    background-repeat: repeat;
     background-position: center;
     background-attachment: fixed; 
     padding: 100px 0;
-    color: white;
+    color: var(--text-black);
 }
-.pain-section h2 { font-family: var(--font-title); text-align: center; font-size: 2.5rem; text-transform: uppercase; margin-bottom: 50px; text-shadow: 0 2px 5px rgba(0,0,0,0.3); }
+.pain-section h2 { font-family: var(--font-title); text-align: center; font-size: 2.5rem; text-transform: uppercase; margin-bottom: 50px; text-shadow: 0 2px 10px rgba(220, 169, 165, 0.3); }
 .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: stretch; }
-.pain-box { background: rgba(0, 0, 0, 0.4); padding: 40px; border-radius: 20px; height: 100%; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); }
+.pain-box { background: rgba(74, 59, 50, 0.85); padding: 40px; border-radius: 20px; height: 100%; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); color: white; }
 .pain-box.good { background: rgba(255, 255, 255, 0.97); color: var(--text-black); border: 2px solid var(--btn-neon); box-shadow: 0 10px 30px rgba(220,169,165,0.2); transform: scale(1.02); }
 .pain-box h3 { font-family: var(--font-title); font-size: 1.5rem; margin-bottom: 25px; text-transform: uppercase; }
 .pain-box ul li { list-style: none; margin-bottom: 18px; font-size: 1.1rem; display: flex; align-items: flex-start; gap: 12px; line-height: 1.4; font-weight: 500;}
@@ -208,6 +209,82 @@ img { max-width: 100%; display: block; }
     .app-text h2 { text-align: center; } /* Mantém título centralizado se preferir */
 }
 
+/* --- Special Bonus Module --- */
+.special-bonus-module {
+    padding: 100px 0;
+    position: relative;
+    background-color: transparent;
+}
+.special-bonus-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: 0 15px 40px rgba(220, 169, 165, 0.2);
+    border: 3px solid var(--btn-neon);
+    backdrop-filter: blur(10px);
+}
+.bonus-badge {
+    display: inline-block;
+    background-color: var(--bg-pink);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+.special-bonus-text h2 {
+    font-family: var(--font-title);
+    font-size: 2.5rem;
+    color: var(--text-black);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+.special-bonus-text p {
+    font-size: 1.15rem;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+.bonus-features {
+    grid-template-columns: 1fr;
+    margin-bottom: 0;
+}
+.special-bonus-image {
+    display: flex;
+    justify-content: center;
+}
+.bonus-card-floating img {
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    border: 5px solid white;
+    max-width: 320px;
+    transform: rotate(3deg);
+    transition: transform 0.4s ease;
+}
+.bonus-card-floating:hover img {
+    transform: rotate(0deg) scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .special-bonus-container {
+        grid-template-columns: 1fr;
+        padding: 30px 20px;
+    }
+    .special-bonus-text h2 {
+        font-size: 2.2rem;
+    }
+    .bonus-card-floating img {
+        max-width: 250px;
+    }
+}
+
 /* --- Bônus --- */
 .bonus-section { padding: 80px 0; background-color: var(--bg-cream); }
 .bonus-section h2 { font-family: var(--font-title); text-align: center; font-size: 2.5rem; text-transform: uppercase; color: var(--bg-pink); margin-bottom: 50px; }
@@ -220,15 +297,16 @@ img { max-width: 100%; display: block; }
 
 /* --- Prova Social (Background Fixo) --- */
 .social-proof {
-    background-image: url('img/background.png'); 
-    background-size: cover;
+    background-image: linear-gradient(rgba(253,251,247,0.85), rgba(253,251,247,0.85)), url('img/story_stickers_light_bg.png');
+    background-size: 400px;
+    background-repeat: repeat;
     background-position: center;
     background-attachment: fixed;
     padding: 100px 0;
     overflow: hidden; 
 }
-.social-proof h2 { font-family: var(--font-title); text-align: center; font-size: 3rem; text-transform: uppercase; color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-.subtitle-white { text-align: center; color: white; margin-bottom: 50px; font-size: 1.2rem; font-weight: bold; text-shadow: 0 1px 5px rgba(0,0,0,0.5); }
+.social-proof h2 { font-family: var(--font-title); text-align: center; font-size: 3rem; text-transform: uppercase; color: var(--text-black); text-shadow: 0 2px 10px rgba(220, 169, 165, 0.3); }
+.subtitle-white { text-align: center; color: var(--text-black); margin-bottom: 50px; font-size: 1.2rem; font-weight: bold; text-shadow: 0 1px 5px rgba(220, 169, 165, 0.2); }
 
 /* --- MEU CARROSSEL CSS (ANIMAÇÃO PURA INFINITA) --- */
 .custom-carousel {
